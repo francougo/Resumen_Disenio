@@ -1,0 +1,77 @@
+\documentclass[a4paper]{article}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\begin{document}
+\begin{center}\huge{Resumen de Diseño}\end{center}
+El objetivo de las pruebas es encontrar la mayor cantidad de errores
+en el codigo. Deben generarse pruebas para cada componente del sistema
+diseñado y deben probarse los componentes en conjunto, cuando interactuan
+unos con otros. Cuando se realizan casos de prueba se definen los 
+resultados esperados y se registran los resultados obtenidos para hacer una
+comparacion y asi determinar si se encontro un error.
+Las pruebas ademas, son muy costosas y existe una cantidad muy grande de 
+errores en el software, ademas de que no existan metodos para contabilizar
+exactamente cuantos errores hay. Por lo tanto es necesario tomar decisiones
+sobre cuanto probar y como dirigir las pruebas teniendo en cuenta que no 
+se podra probar todo y no se podran detectar todos los errores.
+Considerando el objetivo de encontrar la mayor cantidad de errores con
+el menor esfuerzo, es importante que las pruebas sean faciles de llevar
+a cabo. Para lograr esto, son convenientes las siguientes caracteristicas
+del sistema.
+
+\begin{itemize}
+    \item \textbf{Operatividad:} Si el software es facil de utilizar y esta construido
+    con la calidad en mente, sera mas facil realizar las pruebas.
+    \item \textbf{Observabilidad:} Si las variables y el estado de sistema son visibles
+    para quien ejecuta las pruebas es facil identificar salidas o comportamientos incorrectos.
+    \item \textbf{Controlabilidad:} Si el tester tiene facil acceso a las variables y el estado
+    del sistema para modificarlos, podra especificar y automatizar facilmente las pruebas.
+    \item \textbf{Capacidad de descomponer o modularidad:} Es mas facil probar los componentes 
+    aislados del sistema
+    \item \textbf{Comprension del sistema:} Cuanto mejor se comprendan las relaciones entre los
+    componentes del sistema, relaciones externas y el diseño o arquitectura en general y mas
+    facil sea el acceso a una documentacion de calidad, mas facil
+    sera llevar a cabo las pruebas y se podran enfocar de manera mas eficiente.
+\end{itemize}
+
+\subsection*{Caracteristicas de las pruebas}
+\begin{itemize}
+    \item \textbf{No redundantes:} Las pruebas son costosas y muchas veces deben probarse solo
+    un subconjunto de pruebas por lo que nunca deben realizarse dos casos que tengan el mismo
+    objetivo
+    \item \textbf{Debe ser la mejor de su clase:} Si se descartan pruebas, para cada clase u 
+    proposito, debe elegirse la prueba con la mayor probabilidad de encontrar errores
+    \item \textbf{Complejidad:} Una prueba no debe ser ni muy simple ni muy compleja ya que
+    hacer pruebas muy simples implica mas pruebas separadas y mas tiempo, por lo tanto mas recursos
+    mientras que una prueba muy compleja que busque agrupar varias pruebas simples puede resultar
+    en errores que sean enmascarados por probar en conjunto.
+\end{itemize}
+
+\subsection*{Prueba de caja negra}
+Si se conoce la funcion para la cual fue diseñado el sistema se prueba que cada funcion sea 
+operacional y se buscan errores. Estas pruebas son sobre las funciones del software.
+
+\subsection*{Prueba de caja blanca}
+Si se tienen las especificaciones de cada componente y se conoce el funcionamiento interno del 
+sistema pueden probarse las piezas de forma individual. Son pruebas cercanas al detalle de la 
+implementacion.
+
+\subsection*{Particion equivalente y valores limite}
+La particion equivalente es un metodo de prueba de caja negra que consiste en dividir el dominio
+de entrada en particiones o clases de datos de las que se puedan derivar los casos de prueba. La
+idea es reducir los casos de prueba a un caso por clase considerando que cada clase pueda producir
+un tipo de error en particular. Algunos ejemplos de clases: Si una condicion de entrada especifica
+un rango de valores, se plantean una clase valida y dos no validas. Si la condicion es de un valor 
+exacto, se definen dos clases invalidas y una valida. Si la condicion es que la entrada pertenezca
+a un conjunto de datos, se define una clase valida y otra invalida, al igual que si la condicion es
+booleana.
+Ya que la mayor parte de los errores se detectan en los limites del dominio de entrada, pueden 
+elegirse valores que se encuentren en los limites de las clases de equivalencia en vez de cualquier
+valor. Esta tecnica permite tambien encontrar casos de prueba para el dominio de salidas.% Como??
+
+\subsection*{Pruebas del sistema}
+Es importante probar la interfaz del software con el hardware. Ya que los sistemas en su mayoria
+operan dentro de un sistema operativo y no directamente sobre el hardware, es necesario considerar
+a las interrupciones, que son la forma que tiene el hardware de interactuar directamente con el 
+sistema. Se debe probar el manejo de cada interrupcion posible, el impacto de las interrupciones en
+el desempeño del sistema y el tiempo de procesamiento.
+\end{document}
